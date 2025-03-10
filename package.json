@@ -1,0 +1,23 @@
+{
+  "name": "sakura-ddos-web",
+  "version": "1.0.0",
+  "description": "Sakura DDOS Web Interface",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "socks": "^2.7.1",
+    "ssl": "^1.0.0",
+    "socket.io": "^4.7.2",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
