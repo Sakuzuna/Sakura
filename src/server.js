@@ -6,10 +6,10 @@ const { startAttack, stopAttack } = require('./attack');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-const port = 3000;
+const port = process.env.PORT || 3000; 
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.post('/login', (req, res) => {
   const { nickname, password } = req.body;
@@ -42,5 +42,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
