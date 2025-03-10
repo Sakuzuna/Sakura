@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakura DDOS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sakura DDOS</h1>
+    <input type="text" id="url" placeholder="URL">
+    <input type="number" id="time" placeholder="Time (seconds)">
+    <button id="startAttack">Start Attack</button>
+    <button id="stopAttack">Stop Attack</button>
+    <div id="status"></div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    document.getElementById('startAttack').addEventListener('click', () => {
+      const url = document.getElementById('url').value;
+      const time = document.getElementById('time').value;
+
+      socket.emit('startAttack', { url, time });
+    });
+
+    document.getElementById('stopAttack').addEventListener('click', () => {
+      socket.emit('stopAttack');
+    });
+
+    socket.on('attackStarted', (message) => {
+      document.getElementById('status').innerHTML = message;
+    });
+
+    socket.on('attackStopped', (message) => {
+      document.getElementById('status').innerHTML = message;
+    });
+  </script>
+</body>
+</html>
