@@ -185,8 +185,6 @@ function cc(event, proxy_type) {
 
 module.exports = {
   cc,
-  post,
-  head,
   ParseUrl,
   GenReqHeader,
   getuseragent,
