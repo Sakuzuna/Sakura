@@ -7,17 +7,27 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.container {
+body {
   display: flex;
-  justify-content: center; /* Center the container */
-  align-items: center; /* Center vertically */
+  justify-content: center; /* Center the container horizontally */
+  align-items: center; /* Center the container vertically */
   height: 100vh; /* Full viewport height */
+}
+
+.container {
+  text-align: center; /* Center text inside the container */
+  width: 400px; /* Set a fixed width for the container */
+  padding: 20px; /* Add padding for better spacing */
+  border: 1px solid #dddd;
+  border-radius: 18px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 20px; /* Add margin for spacing */
 }
 
 .body {
   text-align: center;
   position: relative;
-  width: 720px;
+  width: 720px; /* Width for index.html */
   height: auto; /* Change to auto to fit content */
   margin: 20px;
   border: 1px solid #dddd;
@@ -42,6 +52,7 @@ input {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  width: 100%; /* Make inputs full width */
 }
 
 button {
@@ -51,8 +62,14 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%; /* Make buttons full width */
+  margin: 5px 0; /* Add margin for spacing between buttons */
 }
 
 button:hover {
   background-color: #d870d8;
+}
+
+#status {
+  margin-top: 20px; /* Add space above the status message */
 }
