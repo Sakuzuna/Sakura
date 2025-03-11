@@ -1,19 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const path = require('path');
+const nodePath = require('path'); 
 const { startAttack, stopAttack } = require('./attack');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(nodePath.join(__dirname, '../public')));
 
 app.post('/login', (req, res) => {
   const { nickname, password } = req.body;
-  const loginData = fs.readFileSync(path.join(__dirname, '../public/login.txt'), 'utf8');
+  const loginData = fs.readFileSync(nodePath.join(__dirname, '../public/login.txt'), 'utf8');
   const users = loginData.split('\n').map(line => line.trim());
 
   if (users.includes(`${nickname}:${password}`)) {
@@ -24,7 +24,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/dfkdsbfjsdfbdsfdsfhdsf', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/attack.html'));
+  res.sendFile(nodePath.join(__dirname, '../public/attack.html'));
 });
 
 io.on('connection', (socket) => {
