@@ -1,15 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const nodePath = require('path'); 
+const nodePath = require('path');
 const { startAttack, stopAttack } = require('./attack');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
 app.use(express.static(nodePath.join(__dirname, '../public')));
+
+app.use(bodyParser.json());
 
 app.post('/login', (req, res) => {
   const { nickname, password } = req.body;
